@@ -2,9 +2,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["CoreAppPractice/CoreAppPractice.csproj", "CoreAppPractice/"]
-RUN dotnet restore "CoreAppPractice.csproj"
+RUN dotnet restore "CoreAppPractice/CoreAppPractice.csproj"
 COPY . .
-RUN dotnet publish "CoreAppPractice.csproj" -c Release -o /app/publish
+RUN dotnet publish "CoreAppPractice/CoreAppPractice.csproj" -c Release -o /app/publish
 
 # Use lightweight Linux runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
